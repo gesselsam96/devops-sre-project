@@ -155,7 +155,7 @@ rules:
     resources: ["pods"]
     verbs: ["patch"] 
   - apiGroups: [""]  # Core API group for basic resources
-    resources: ["secrets", "services", "pods", "endpoints", "persistentvolumeclaims", "configmaps"]
+    resources: ["secrets", "services", "pods", "endpoints", "persistentvolumeclaims", "configmaps", "serviceaccounts"]
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
   - apiGroups: ["apps"]  # Apps API group for deployments, daemonsets, etc.
     resources: ["deployments", "daemonsets", "replicasets", "statefulsets"]
@@ -169,7 +169,10 @@ rules:
   - apiGroups: ["rbac.authorization.k8s.io"]  # RBAC resources if Helm needs to set permissions
     resources: ["roles", "rolebindings"]
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
-  
+  - apiGroups: ["policy"]  # RBAC resources if Helm needs to set permissions
+    resources: ["poddisruptionbudgets"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+    
   - apiGroups:
       - argoproj.io
     resources:

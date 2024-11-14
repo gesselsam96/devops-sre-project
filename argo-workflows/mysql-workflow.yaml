@@ -19,6 +19,10 @@ spec:
 
         - - name: install-or-upgrade
             template: install-or-upgrade
+            arguments:
+              parameters:
+                - name: release-status
+                  value: "{{steps.check-release.outputs.parameters.release-status}}"
 
     - name: check-release
       script:
@@ -34,10 +38,15 @@ spec:
 
           # Check if MySQL release exists in the 'app' namespace
           if helm status mysql --namespace app > /dev/null 2>&1; then
-            echo "MySQL release is already installed"
+            echo "installed" > /tmp/step-output
           else
-            echo "not-installed" > /tmp/not-installed
+            echo "not-installed" > /tmp/step-output
           fi
+      outputs:
+        parameters:
+          - name: release-status
+            valueFrom:
+              path: /tmp/step-output
 
     - name: inspect-directory
       script:
@@ -49,7 +58,7 @@ spec:
         source: |
           apk add --no-cache git
           # Clone the GitHub repository into the shared volume
-          git clone https://github.com/gesselsam96/mysql-project.git /workspace
+          git clone https://github.com/gesselsam96/argos-wf-project.git /workspace
 
           # List contents to confirm the directory structure
           echo "Inspecting /workspace contents:"
@@ -64,17 +73,27 @@ spec:
             mountPath: /workspace  # Shared volume for Git repository cloning
         source: |
           # Install curl, bash, and git
-          apk add --no-cache curl bash
+          apk add --no-cache curl bash git
+
+          # Clone the GitHub repository into the shared volume
+          git clone https://github.com/gesselsam96/argos-wf-project.git /workspace
+          
           # Install Helm
           curl -L https://get.helm.sh/helm-v3.9.0-linux-amd64.tar.gz -o helm.tar.gz
           tar -xvf helm.tar.gz
           mv linux-amd64/helm /usr/local/bin/helm
+          
+          # Echo the release status input parameter to confirm it was passed
+          echo "Release status is: {{inputs.parameters.release-status}}"
 
-          # Check if we need to install or upgrade
-          if [ -f /tmp/not-installed ]; then
+          # Decide based on the release status
+          if [ "{{inputs.parameters.release-status}}" = "not-installed" ]; then
             echo "Installing MySQL..."
             helm install mysql /workspace/mysql --namespace app
           else
             echo "Upgrading MySQL..."
             helm upgrade mysql /workspace/mysql --namespace app
           fi
+      inputs:
+        parameters:
+          - name: release-status
