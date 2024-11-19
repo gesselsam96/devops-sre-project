@@ -172,6 +172,9 @@ rules:
   - apiGroups: ["policy"]  # RBAC resources if Helm needs to set permissions
     resources: ["poddisruptionbudgets"]
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: ["argoproj.io"]  # Workflow operations
+    resources: ["workflowtaskresults"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
     
   - apiGroups:
       - argoproj.io
