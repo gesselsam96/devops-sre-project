@@ -448,7 +448,7 @@ server:
   service:
     ## @param server.service.type server service type
     ##
-    type: ClusterIP
+    type: NodePort
     ## @param server.service.ports.http server service HTTP port
     ##
     ports:
@@ -458,7 +458,7 @@ server:
     ## NOTE: choose port between <30000-32767>
     ##
     nodePorts:
-      http: ""
+      http: "30000"
     ## @param server.service.clusterIP server service Cluster IP
     ## e.g.:
     ## clusterIP: None
