@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ghost-logs-pvc
+  namespace: app  # Replace with your namespace
+spec:
+  accessModes:
+    - ReadWriteMany  # Allows multiple pods to read and write to the PVC
+  resources:
+    requests:
+      storage: 5Gi  # Adjust the size based on your needs
