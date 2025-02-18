@@ -681,7 +681,7 @@ licenseManager:
 
 standalone:
 
-  enabled: false
+  enabled: true
 
   name: "stdln"
 
@@ -779,8 +779,10 @@ standalone:
   serviceAccount: ""
 
   # ServiceTemplate is a template used to create Kubernetes services
-  serviceTemplate: {}
-
+  serviceTemplate: 
+    spec:
+      type: NodePort
+      
   tolerations: []
 
   affinity: {}

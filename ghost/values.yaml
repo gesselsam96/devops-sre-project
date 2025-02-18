@@ -728,6 +728,13 @@ mysql:
   ## @param mysql.architecture MySQL architecture. Allowed values: `standalone` or `replication`
   ##
   architecture: standalone
+  
+  ##extended metric properties from orginal chart
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: false
+      
   ## MySQL Authentication parameters
   ## @param mysql.auth.rootPassword MySQL root password
   ## @param mysql.auth.database MySQL custom database

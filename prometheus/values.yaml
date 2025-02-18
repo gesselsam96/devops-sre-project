@@ -747,6 +747,11 @@ server:
     static_configs:
       - targets: 
           - mysql-metrics.app.svc.cluster.local:9104
+  - job_name: ghost-mysql-metrics
+    scrape_interval: 30s
+    static_configs:
+      - targets: 
+          - ghost-mysql-metrics.app.svc.cluster.local:9104
 
   ## @param server.replicaCount Number of Prometheus replicas to deploy
   ##
@@ -1542,7 +1547,7 @@ server:
   service:
     ## @param server.service.type Prometheus service type
     ##
-    type: LoadBalancer
+    type: NodePort
     ## @param server.service.ports.http Prometheus service HTTP port
     ##
     ports:

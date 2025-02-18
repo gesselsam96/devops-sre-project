@@ -150,7 +150,9 @@ lifecycleHooks: {}
 ##  - name: FOO
 ##    value: BAR
 ##
-extraEnvVars: []
+extraEnvVars: 
+ - name: SPLUNK_HEC_TOKEN
+   value: "01F0EC4D-DB33-60A0-13EC-A061891F0D05"
 ## @param extraEnvVarsCM Name of existing ConfigMap containing extra env vars
 ##
 extraEnvVarsCM: ""
@@ -563,6 +565,7 @@ config:
         Tag ghost
         Path /bitnami/ghost/content/logs/*.log
         Refresh_Interval 10
+        #Parser logfmt
         
     # [INPUT]
         # Name tail
@@ -577,16 +580,21 @@ config:
   ## @param config.filters [string] Set of plugins that can be used to filter, modify, or enrich log data that is processed by Fluent Bit.
   ## https://docs.fluentbit.io/manual/pipeline/filters
   ## Example:
-  ## filters: |
-  ##   [FILTER]
-  ##       Name kubernetes
-  ##       Match kube.*
-  ##       Merge_Log On
-  ##       Keep_Log Off
-  ##       K8S-Logging.Parser On
-  ##       K8S-Logging.Exclude On
+  filters: |
+    # [FILTER]
+        # Name kubernetes
+        # Match kube.*
+        # Merge_Log On
+        # Keep_Log Off
+        # K8S-Logging.Parser On
+        # K8S-Logging.Exclude On
+        
+      [FILTER]
+        Name ghost
+        Match ghost
+        Set source fluent-bit
   ##
-  
+
   
   filters: ""
   ## @param config.outputs [string] Outputs to send the collected data to different destinations
@@ -603,11 +611,14 @@ config:
         Match       ghost
         Host        splunk-stdln-standalone-service.app.svc.cluster.local
         Port        8088
-        TLS         Off
-        splunk_token 01F0EC4D-DB33-60A0-13EC-A061891F0D05
+        TLS         On
+        TLS.Verify Off
+        Splunk_Token 01F0EC4D-DB33-60A0-13EC-A061891F0D05
         event_index main
-        Splunk_Send_Raw On
         Log_Level debug
+        #source ghost-logs
+        #Splunk_Send_Raw On
+        
         
     # [OUTPUT]
         # Name        splunk

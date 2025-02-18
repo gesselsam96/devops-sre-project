@@ -138,18 +138,6 @@ spec:
           {{- else if .Values.command }}
           command: {{- include "common.tplvalues.render" (dict "value" .Values.command "context" $) | nindent 12 }}
           {{- end }}
-          # {{- if .Values.fluentbit.enabled }}
-          # command: 
-            # - sh
-            # - -c
-            # - |
-                # i=0
-                # while true; do
-                  # cat /bitnami/ghost/content/logs/* >> /shared-logs/ghost-logs.txt
-                  # i=$((i+1))
-                # sleep 1
-                # done
-          # {{- end }}
           {{- if .Values.diagnosticMode.enabled }}
           
           
