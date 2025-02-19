@@ -683,6 +683,8 @@ volumePermissions:
 ## ref: https://github.com/bitnami/charts/blob/main/bitnami/mysql/values.yaml
 ##
 mysql:
+  image:
+    debug: true
   ## @param mysql.enabled Deploy a MySQL server to satisfy the applications database requirements
   ## To use an external database set this to false and configure the `externalDatabase.*` parameters
   ##
