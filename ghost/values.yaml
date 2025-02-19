@@ -69,9 +69,6 @@ diagnosticMode:
   ##
   args:
     - infinity
-    
-fluentbit:
-  enabled: true
 ## @section Ghost Image parameters
 
 ## Bitnami Ghost image
@@ -219,17 +216,10 @@ automountServiceAccountToken: false
 hostAliases: []
 ## @param extraVolumes Optionally specify extra list of additional volumes for Ghost pods
 ##
-extraVolumes: 
-   - name: shared-logs
-     persistentVolumeClaim:
-       claimName: ghost-logs-pvc
-   - name: ghost-logs
-     emptyDir: {}  # This ensures that the volume is shared across containers
+extraVolumes: []
 ## @param extraVolumeMounts Optionally specify extra list of additional volumeMounts for Ghost container(s)
 ##
-extraVolumeMounts: 
-   - name: shared-logs
-     mountPath: /shared-logs
+extraVolumeMounts: []
 ## @param sidecars Add additional sidecar containers to the Ghost pod
 ## e.g:
 ## sidecars:
@@ -241,21 +231,6 @@ extraVolumeMounts:
 ##         containerPort: 1234
 ##
 sidecars: []
-   # - name: log-sync-sidecar
-     # image: busybox:latest
-     # command: [
-       # while true; do
-          # tail -f /bitnami/ghost/content/logs/http___192_168_65_3__production.log >> /shared-logs/shared.log;
-          # sleep 5;
-        # done
-     # ]
-     # securityContext:
-      # runAsUser: 1001  # Ensure this matches the UID of the main container
-      # runAsGroup: 1001
-     # volumeMounts:
-       # - name: shared-logs
-         # mountPath: /shared-logs  # Shared volume to be accessed by Fluent Bit
-
 ## @param initContainers Add additional init containers to the Ghost pods
 ## ref: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
 ## e.g:
@@ -268,19 +243,6 @@ sidecars: []
 ##        containerPort: 1234
 ##
 initContainers: []
-   # - name: log-sync-init
-     # image: busybox:latest
-     # command: 
-       # - sh
-       # - -c
-       # - |
-         # touch /shared-logs/shared.log 
-     # securityContext:
-      # runAsUser: 1001  # Ensure this matches the UID of the main container
-      # runAsGroup: 1001
-     # volumeMounts:
-       # - name: shared-logs
-         # mountPath: /shared-logs  # Shared volume to be accessed by Fluent Bit
 ## Pod Disruption Budget configuration
 ## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb
 ## @param pdb.create Enable/disable a Pod Disruption Budget creation
@@ -481,7 +443,7 @@ service:
   ##
   nodePorts:
     http: "32766"
-    https: "32766"
+    https: ""
   ## @param service.clusterIP Ghost service Cluster IP
   ## e.g.:
   ## clusterIP: None
@@ -728,13 +690,6 @@ mysql:
   ## @param mysql.architecture MySQL architecture. Allowed values: `standalone` or `replication`
   ##
   architecture: standalone
-  
-  ##extended metric properties from orginal chart
-  # metrics:
-    # enabled: true
-    # serviceMonitor:
-      # enabled: false
-      
   ## MySQL Authentication parameters
   ## @param mysql.auth.rootPassword MySQL root password
   ## @param mysql.auth.database MySQL custom database
