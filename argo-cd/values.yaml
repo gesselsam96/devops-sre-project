@@ -2493,7 +2493,7 @@ server:
   service:
     ## @param server.service.type Argo CD service type
     ##
-    type: ClusterIP
+    type: NodePort
     ## @param server.service.ports.http HTTP port for the gRPC ingress when enabled
     ## @param server.service.ports.https HTTPS port for the gRPC ingress when enabled
     ##
@@ -2506,7 +2506,7 @@ server:
     ## NOTE: choose port between <30000-32767>
     ##
     nodePorts:
-      http: ""
+      http: "32764"
       https: ""
     ## @param server.service.clusterIP Argo CD service Cluster IP
     ## e.g.:

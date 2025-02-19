@@ -87,7 +87,7 @@ fluentbit:
 image:
   registry: docker.io
   repository: bitnami/ghost
-  tag: 5.105.0-debian-12-r0
+  tag: 5.109.6-debian-12-r0
   digest: ""
   ## Specify a imagePullPolicy
   ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -676,7 +676,7 @@ volumePermissions:
   image:
     registry: docker.io
     repository: bitnami/os-shell
-    tag: 12-debian-12-r34
+    tag: 12-debian-12-r37
     digest: ""
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
@@ -745,10 +745,10 @@ mysql:
   ##      https://github.com/bitnami/containers/tree/main/bitnami/mysql/#creating-a-database-on-first-run
   ##      https://github.com/bitnami/containers/tree/main/bitnami/mysql/#creating-a-database-user-on-first-run
   auth:
-    rootPassword: "root"
+    rootPassword: ""
     database: bitnami_ghost
     username: bn_ghost
-    password: "root"
+    password: ""
     existingSecret: ""
   ## MySQL Primary configuration
   ##
