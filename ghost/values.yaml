@@ -730,10 +730,10 @@ mysql:
   architecture: standalone
   
   ##extended metric properties from orginal chart
-  metrics:
-    enabled: true
-    serviceMonitor:
-      enabled: false
+  # metrics:
+    # enabled: true
+    # serviceMonitor:
+      # enabled: false
       
   ## MySQL Authentication parameters
   ## @param mysql.auth.rootPassword MySQL root password

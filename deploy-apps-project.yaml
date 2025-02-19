@@ -1,0 +1,23 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: deploy
+  namespace: argo
+spec:
+  clusterResourceWhitelist:
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+  description: Ghost Blog project
+  destinations:
+  - name: '*'
+    namespace: '*'
+    server: https://kubernetes.default.svc
+  roles:
+  - groups:
+    - rbac.authorization.k8s.io
+    name: deploy-app
+  sourceRepos:
+  - '*'
