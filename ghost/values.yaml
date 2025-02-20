@@ -429,7 +429,7 @@ customReadinessProbe: {}
 service:
   ## @param service.type Ghost service type
   ##
-  type: NodePort
+  type: ClusterIP
   ## @param service.ports.http Ghost service HTTP port
   ## @param service.ports.https Ghost service HTTPS port
   ##
@@ -442,7 +442,7 @@ service:
   ## NOTE: choose port between <30000-32767>
   ##
   nodePorts:
-    http: "32766"
+    http: ""
     https: ""
   ## @param service.clusterIP Ghost service Cluster IP
   ## e.g.:
