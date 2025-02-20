@@ -642,7 +642,7 @@ serviceAccount:
 service:
   ## @param service.type Kubernetes Service type
   ##
-  type: NodePort
+  type: ClusterIP
   ## @param service.clusterIP Grafana service Cluster IP
   ## e.g.:
   ## clusterIP: None
@@ -656,7 +656,7 @@ service:
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##
   nodePorts:
-    grafana: "32000"
+    grafana: ""
   ## @param service.loadBalancerIP loadBalancerIP if Grafana service type is `LoadBalancer` (optional, cloud specific)
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
   ##
