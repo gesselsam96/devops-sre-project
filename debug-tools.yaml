@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: debug-backup
+  name: net-debug-container
   namespace: app
 spec:
   containers:
-  - name: debug-container
-    image: mysql:8.0
+  - name: net-debug-container
+    image: nicolaka/netshoot
     command: ["sleep", "3600"]
     # volumeMounts:
     # - name: mysql-backup
