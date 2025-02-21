@@ -691,7 +691,7 @@ mysql:
       log-output=TABLE,FILE
   image:
     debug: true
-    tag: 9.0-debain-12
+    tag: 9.0-debian-12
   ## @param mysql.enabled Deploy a MySQL server to satisfy the applications database requirements
   ## To use an external database set this to false and configure the `externalDatabase.*` parameters
   ##
