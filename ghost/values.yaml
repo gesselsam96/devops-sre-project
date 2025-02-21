@@ -685,6 +685,7 @@ volumePermissions:
 mysql:
   primary:
     configuration: |-
+      [mysqld]
       bind-address=0.0.0.0
       log_error_verbosity=3
       log-output=TABLE,FILE
