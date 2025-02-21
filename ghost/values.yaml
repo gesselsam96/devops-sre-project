@@ -685,7 +685,7 @@ volumePermissions:
 mysql:
   primary:
     configuration: |-
-      bind-address=*
+      bind-address=0.0.0.0
   image:
     debug: true
   ## @param mysql.enabled Deploy a MySQL server to satisfy the applications database requirements
