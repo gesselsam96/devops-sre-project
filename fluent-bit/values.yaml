@@ -511,7 +511,7 @@ updateStrategy:
 extraVolumes: 
    - name: ghost-logs
      persistentVolumeClaim:
-       claimName: data-ghost-mysql-0
+       claimName: ghost
 ## @param extraVolumeMounts Optionally specify extra list of additional volumeMounts for Ghost container(s)
 ##
 extraVolumeMounts: 
