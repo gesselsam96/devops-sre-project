@@ -506,17 +506,16 @@ updateStrategy:
 # extraVolumeMounts:
   # - name: docker-logs
     # mountPath: /mnt/docker-logs  # Path inside Fluent Bit container where logs will be available
-    
+
+####    
 extraVolumes: 
-   - name: shared-logs
-     persistentVolumeClaim:
-       claimName: ghost
    - name: ghost-logs
-     emptyDir: {}  # This ensures that the volume is shared across containers
+     persistentVolumeClaim:
+       claimName: data-ghost-mysql-0
 ## @param extraVolumeMounts Optionally specify extra list of additional volumeMounts for Ghost container(s)
 ##
 extraVolumeMounts: 
-   - name: shared-logs
+   - name: ghost-logs
      mountPath: /bitnami/ghost
 ## @param initContainers Add additional init containers to the fluent-bit pods
 ##
