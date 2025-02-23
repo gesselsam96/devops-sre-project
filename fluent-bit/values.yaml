@@ -516,7 +516,8 @@ extraVolumes:
 ##
 extraVolumeMounts: 
    - name: ghost-logs
-     mountPath: /bitnami/ghost
+     mountPath: /var/log/ghost
+     subpath: /bitnami/ghost/content/logs
 ## @param initContainers Add additional init containers to the fluent-bit pods
 ##
 initContainers: []
