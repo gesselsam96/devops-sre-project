@@ -579,6 +579,7 @@ config:
   ## @param config.filters [string] Set of plugins that can be used to filter, modify, or enrich log data that is processed by Fluent Bit.
   ## https://docs.fluentbit.io/manual/pipeline/filters
   ## Example:
+  ## https://docs.fluentbit.io/manual/pipeline/filters
   filters: |
     [FILTER]
         Name modify
