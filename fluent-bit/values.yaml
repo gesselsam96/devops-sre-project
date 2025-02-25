@@ -587,12 +587,12 @@ config:
         # Keep_Log Off
         # K8S-Logging.Parser On
         # K8S-Logging.Exclude On
-      [FILTER]
+    [FILTER]
         Name modify
         Match *
         Rename log log_string
         
-      [FILTER]
+    [FILTER]
         Name parser
         Match *
         Key_Name log
@@ -600,7 +600,7 @@ config:
         Reserve_Data On
         Preserve_Key Off
       
-      [FILTER]
+    [FILTER]
         Name modify
         Match *
         Remove log log_string        
