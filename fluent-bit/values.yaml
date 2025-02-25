@@ -581,11 +581,11 @@ config:
   ## Example:
   filters: |
     [FILTER]
-        Name modify
-        Match *
-        Set statusCode $.log.res.statusCode
-        Set url $.log.req.url
-        Set method $.log.req.method  
+      Name modify
+      Match *
+      Set statusCode $.log.res.statusCode
+      Set url $.log.req.url
+      Set method $.log.req.method  
     
     # [FILTER]
         # Name kubernetes
