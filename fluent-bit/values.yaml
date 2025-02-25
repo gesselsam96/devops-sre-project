@@ -584,10 +584,7 @@ config:
     [FILTER]
         Name modify
         Match *
-        Set statusCode $.log.res.statusCode
-        Set url $.log.req.url
-        Set method $.log.req.method
-             
+        Set statusCode $.log.res.statusCode             
   ## @param config.outputs [string] Outputs to send the collected data to different destinations
   ## https://docs.fluentbit.io/manual/pipeline/outputs
   ##
