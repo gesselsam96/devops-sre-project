@@ -590,7 +590,7 @@ config:
         Match *
         Key_Name log_string
         Parser json
-        Reserver_Data On
+        Reserve_Data On
         Preserve_Key Off       
     [FILTER]
         Name modify
