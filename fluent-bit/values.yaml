@@ -589,10 +589,10 @@ config:
         # K8S-Logging.Exclude On
         
       [FILTER]
-        Name ghost
+        Name modify
         Match ghost
         Set source fluent-bit
-        Copy                $.log.res.statusCode statusCode
+        Copy $.log.res.statusCode statusCode
   ##
 
   
