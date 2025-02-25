@@ -592,6 +592,7 @@ config:
         Name ghost
         Match ghost
         Set source fluent-bit
+        Copy                $.log.res.statusCode statusCode
   ##
 
   
