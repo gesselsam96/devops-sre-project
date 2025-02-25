@@ -580,6 +580,13 @@ config:
   ## https://docs.fluentbit.io/manual/pipeline/filters
   ## Example:
   filters: |
+    [FILTER]
+        Name modify
+        Match *
+        Set statusCode $.log.res.statusCode
+        Set url $.log.req.url
+        Set method $.log.req.method  
+    
     # [FILTER]
         # Name kubernetes
         # Match kube.*
@@ -587,12 +594,6 @@ config:
         # Keep_Log Off
         # K8S-Logging.Parser On
         # K8S-Logging.Exclude On
-    [FILTER]
-        Name modify
-        Match *
-        Set statusCode $.log.res.statusCode
-        Set url $.log.req.url
-        Set method $.log.req.method
              
   ## @param config.outputs [string] Outputs to send the collected data to different destinations
   ## https://docs.fluentbit.io/manual/pipeline/outputs
