@@ -581,24 +581,12 @@ config:
   ## Example:
   ## https://docs.fluentbit.io/manual/pipeline/filters
   filters: |
-    # [FILTER]
-        # Name modify
-        # Match *
-        # Rename log log_string             
     [FILTER]
         Name parser
         Match *
         Key_Name log
         Parser json
-        Reserve_Data On       
-    # [FILTER]
-        # Name modify
-        # Match *
-        # Copy res.statusCode statusCode 
-    # [FILTER]
-        # Name modify
-        # Match *
-        # Remove log_string 
+        Reserve_Data On      
 
   ## @param config.outputs [string] Outputs to send the collected data to different destinations
   ## https://docs.fluentbit.io/manual/pipeline/outputs
