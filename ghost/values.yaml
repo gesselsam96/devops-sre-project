@@ -429,7 +429,7 @@ customReadinessProbe: {}
 service:
   ## @param service.type Ghost service type
   ##
-  type: NodePort
+  type: LoadBalancer
   ## @param service.ports.http Ghost service HTTP port
   ## @param service.ports.https Ghost service HTTPS port
   ##
@@ -466,7 +466,8 @@ service:
   externalTrafficPolicy: Cluster
   ## @param service.annotations Additional custom annotations for Ghost service
   ##
-  annotations: {}
+  annotations: 
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
   ## @param service.extraPorts Extra port to expose on Ghost service
   ##
   extraPorts: []
