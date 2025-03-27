@@ -467,7 +467,7 @@ service:
   ## @param service.annotations Additional custom annotations for Ghost service
   ##
   annotations: 
-    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
   ## @param service.extraPorts Extra port to expose on Ghost service
   ##
   extraPorts: []
