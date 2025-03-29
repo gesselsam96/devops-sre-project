@@ -618,7 +618,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: ""
+  storageClass: "gp2-csi"
   annotations: {}
   existingClaim: ""
   accessMode: ReadWriteOnce
@@ -642,7 +642,7 @@ serviceAccount:
 service:
   ## @param service.type Kubernetes Service type
   ##
-  type: NodePort
+  type: LoadBalancer
   ## @param service.clusterIP Grafana service Cluster IP
   ## e.g.:
   ## clusterIP: None
@@ -676,7 +676,8 @@ service:
   ## This can be used to set the LoadBalancer service type to internal only.
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
   ##
-  annotations: {}
+  annotations: 
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
   ## @param service.externalTrafficPolicy Grafana service external traffic policy
   ## ref https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
   ##
