@@ -268,7 +268,7 @@ datasources:
       - name: Prometheus
         type: prometheus
         access: proxy
-        url: http://prometheus-server.app.svc.cluster.local:80
+        url: http://prometheus-deploy-server.app.svc.cluster.local:80
         isDefault: true
   ## @param datasources.secretName The name of an externally-managed secret containing custom datasource files.
   ##
