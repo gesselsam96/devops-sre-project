@@ -18,7 +18,7 @@ global:
   ##   - myRegistryKeySecretName
   ##
   imagePullSecrets: []
-  defaultStorageClass: ""
+  defaultStorageClass: "gp2-csi"
   storageClass: ""
   ## Compatibility adaptations for Kubernetes platforms
   ##
