@@ -57,7 +57,7 @@ spec:
   project: deploy # Argo CD projects, default is fine for now
   source:
     repoURL: 'https://github.com/gesselsam96/devops-sre-project.git' # Your GitHub repo
-    targetRevision: master # Git branch
+    targetRevision: feature/aws-deploy # Git branch
     path: grafana # Path inside the repo to Helm chart
     helm:
       valueFiles:
