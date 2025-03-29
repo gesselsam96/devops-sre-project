@@ -742,11 +742,6 @@ server:
   ## ref: <https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config>
   ##
   extraScrapeConfigs:
-  - job_name: mysql-metrics
-    scrape_interval: 30s
-    static_configs:
-      - targets: 
-          - mysql-metrics.app.svc.cluster.local:9104
   - job_name: ghost-mysql-metrics
     scrape_interval: 30s
     static_configs:
@@ -1547,7 +1542,7 @@ server:
   service:
     ## @param server.service.type Prometheus service type
     ##
-    type: NodePort
+    type: LoadBalancer
     ## @param server.service.ports.http Prometheus service HTTP port
     ##
     ports:
@@ -1584,7 +1579,8 @@ server:
     externalTrafficPolicy: Cluster
     ## @param server.service.annotations Additional custom annotations for Prometheus service
     ##
-    annotations: {}
+    annotations: 
+      service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
     ## @param server.service.extraPorts Extra ports to expose in Prometheus service (normally used with the `sidecars` value)
     ##
     extraPorts: []
