@@ -684,7 +684,7 @@ service:
   externalTrafficPolicy: Cluster
   ## @param service.extraPorts Extra port to expose on Grafana service
   ##
-  extraPorts: []
+  extraPorts: 80
   ## @param service.sessionAffinity Session Affinity for Kubernetes service, can be "None" or "ClientIP"
   ## If "ClientIP", consecutive client requests will be directed to the same Pod
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
