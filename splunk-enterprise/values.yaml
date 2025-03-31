@@ -785,7 +785,9 @@ standalone:
   # ServiceTemplate is a template used to create Kubernetes services
   serviceTemplate: 
     spec:
-      type: NodePort
+      type: LoadBalancer
+      annotations:
+        service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
       
   tolerations: []
 
