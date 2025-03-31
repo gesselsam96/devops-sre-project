@@ -8,7 +8,11 @@ image:
 # Deploy Splunk Operator chart
 # Disable if the Splunk Operator is already deployed
 splunk-operator:
-  enabled: false
+  enabled: true
+  
+# Set storageClassName for the PersistentVolumeClaim
+  persistentVolumeClaim:
+    storageClassName: "gp2-csi"
 sva:
 
   # Single Server Deployment (S1)
@@ -728,7 +732,7 @@ standalone:
 
   defaultsUrl: ""
 
-  defaults: {}
+  defaults: "adminPassword: \"admin\""
 
   defaultsUrlApps: ""
 
