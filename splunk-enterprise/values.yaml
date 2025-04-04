@@ -713,6 +713,7 @@ standalone:
     #     endpoint:
     #     region:
     #     secretRef:
+    #     secretRef:
 
   smartstore: {}
     # defaults:
@@ -732,7 +733,7 @@ standalone:
 
   defaultsUrl: ""
 
-  defaults: "password: \"admin\""
+  defaults: "password: admin"
 
   defaultsUrlApps: ""
 
