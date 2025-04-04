@@ -790,8 +790,7 @@ standalone:
       type: LoadBalancer
       ports:
         - name: http-splunkweb  # A descriptive name for the port
-          port: 80            # <--- CHANGE THIS: The external port the LB listens on
-          targetPort: 8000      # <--- The internal port the Splunk pod listens on 
+          port: 80            
 
         
   tolerations: []
