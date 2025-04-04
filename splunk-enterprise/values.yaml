@@ -788,6 +788,7 @@ standalone:
   serviceTemplate: 
     spec:
       type: LoadBalancer
+      port: 80
 
         
   tolerations: []
