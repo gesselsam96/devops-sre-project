@@ -788,12 +788,11 @@ standalone:
   serviceTemplate: 
     spec:
       type: LoadBalancer
-      properties:
-        ports:
-          - name: http-splunkweb  # A descriptive name for the port
-            port: 80            # <--- CHANGE THIS: The external port the LB listens on
-            targetPort: 8000      # <--- The internal port the Splunk pod listens on (usually fixed)
-            protocol: TCP
+      ports:
+        - name: http-splunkweb  # A descriptive name for the port
+          port: 80            # <--- CHANGE THIS: The external port the LB listens on
+          targetPort: 8000      # <--- The internal port the Splunk pod listens on (usually fixed)
+          protocol: TCP
 
         
   tolerations: []
