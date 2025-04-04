@@ -788,7 +788,11 @@ standalone:
   serviceTemplate: 
     spec:
       type: LoadBalancer
-      port: 80
+      ports:
+        - name: http-splunkweb
+          port: 80       # Your desired EXTERNAL port for Splunk Web
+          targetPort: 8000 # Splunk Web internal port (usually keep as 8000)
+          protocol: TCP
 
         
   tolerations: []
