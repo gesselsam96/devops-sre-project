@@ -732,7 +732,7 @@ standalone:
 
   defaultsUrl: ""
 
-  defaults: "adminPassword: \"admin\""
+  defaults: "password: \"admin\""
 
   defaultsUrlApps: ""
 
