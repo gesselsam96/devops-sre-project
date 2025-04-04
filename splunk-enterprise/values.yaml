@@ -789,8 +789,7 @@ standalone:
     spec:
       type: LoadBalancer
       ports:
-        - port: 80     
-          targetPort: 8000          
+        port: 80             
 
         
   tolerations: []
