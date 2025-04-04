@@ -787,9 +787,9 @@ standalone:
   serviceTemplate: 
     spec:
       type: LoadBalancer
-      metadata:
-        annotations:
-          service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+    metadata:
+      annotations:
+        service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
         
   tolerations: []
 
