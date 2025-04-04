@@ -789,8 +789,7 @@ standalone:
     spec:
       type: LoadBalancer
       ports:
-        - protocol: TCP  # A descriptive name for the port
-          port: 80     
+        - port: 80     
           targetPort: 8000          
 
         
