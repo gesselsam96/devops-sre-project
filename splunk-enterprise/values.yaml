@@ -693,7 +693,8 @@ standalone:
 
   additionalLabels: {}
 
-  additionalAnnotations: {}
+  additionalAnnotations: 
+    service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
 
   replicaCount: 1
 
@@ -785,9 +786,6 @@ standalone:
 
   # ServiceTemplate is a template used to create Kubernetes services
   serviceTemplate: 
-    metadata:
-      annotations:
-        service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
     spec:
       type: LoadBalancer
 
