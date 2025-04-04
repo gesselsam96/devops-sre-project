@@ -789,8 +789,9 @@ standalone:
     spec:
       type: LoadBalancer
       ports:
-        - name: http-splunkweb  # A descriptive name for the port
-          port: 80            
+        - protocol: TCP  # A descriptive name for the port
+          port: 80     
+          targetPort: 8000          
 
         
   tolerations: []
