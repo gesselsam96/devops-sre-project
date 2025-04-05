@@ -789,7 +789,7 @@ standalone:
     spec:
       type: LoadBalancer
       ports:
-      - name: http-splunkweb
+      - name: new-svc
         port: 80          # <--- Set external port to 80
         targetPort: 8000          
 
