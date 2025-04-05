@@ -604,7 +604,7 @@ config:
         Port        8088
         TLS         On
         TLS.Verify Off
-        Splunk_Token 066B96EC-704E-6074-9FDD-DFAE98FEC0AB
+        Splunk_Token F8D437D0-0DF8-B904-9B22-D3F0B745B1D8
         event_index main
         Log_Level debug
         #source ghost-logs
