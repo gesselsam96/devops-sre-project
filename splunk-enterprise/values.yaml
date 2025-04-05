@@ -734,9 +734,8 @@ standalone:
 
   defaultsUrl: ""
 
-  defaults: |  # <--- Use the literal block scalar pipe symbol
-    password: $adminPassword
-    
+  defaults: "password: $Qpassword"
+
   defaultsUrlApps: ""
 
   extraEnv: []
@@ -768,7 +767,7 @@ standalone:
   etcVolumeStorageConfig:
     ephemeralStorage: false
     storageCapacity: 10Gi
-    storageClassName: "gp2-csi"
+    
 
   varVolumeStorageConfig:
     ephemeralStorage: false
