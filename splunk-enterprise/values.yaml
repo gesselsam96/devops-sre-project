@@ -734,8 +734,10 @@ standalone:
 
   defaultsUrl: ""
 
-  defaults: "password: admin"
-
+  defaults: |  # <--- Use the literal block scalar pipe symbol
+    # --- Provide default.yml content below, properly indented ---
+    password: admin
+    
   defaultsUrlApps: ""
 
   extraEnv: []
