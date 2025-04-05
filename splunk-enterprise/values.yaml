@@ -767,12 +767,12 @@ standalone:
   etcVolumeStorageConfig:
     ephemeralStorage: false
     storageCapacity: 10Gi
-  # storageClassName: gp2
+    storageClassName: "gp2-csi"
 
   varVolumeStorageConfig:
     ephemeralStorage: false
     storageCapacity: 100Gi
-  # storageClassName: gp2
+    storageClassName: "gp2-csi"
 
   resources: {}
     # requests:
