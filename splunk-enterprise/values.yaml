@@ -734,8 +734,7 @@ standalone:
 
   defaultsUrl: ""
 
-  defaults: 
-    password: $Qpassword
+  defaults: ""
 
   defaultsUrlApps: ""
 
@@ -768,7 +767,7 @@ standalone:
   etcVolumeStorageConfig:
     ephemeralStorage: false
     storageCapacity: 10Gi
-    
+    storageClassName: "gp2-csi"
 
   varVolumeStorageConfig:
     ephemeralStorage: false
