@@ -734,7 +734,8 @@ standalone:
 
   defaultsUrl: ""
 
-  defaults: "password: $Qpassword"
+  defaults: 
+    password: $Qpassword
 
   defaultsUrlApps: ""
 
