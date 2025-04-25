@@ -601,7 +601,7 @@ persistence:
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
   ## If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner
   ##
-  storageClass: ""
+  storageClass: "longhorn-rwx"
   ## @param persistence.annotations Additional custom annotations for the PVC
   ##
   annotations: {}
