@@ -608,7 +608,7 @@ persistence:
   ## @param persistence.accessModes [array] Persistent Volume access modes
   ##
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   ## @param persistence.size Persistent Volume size
   ##
   size: 8Gi
