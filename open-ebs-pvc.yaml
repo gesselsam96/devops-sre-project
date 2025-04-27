@@ -1,0 +1,14 @@
+# rwx-app-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  # --- Adjust name and namespace for your application ---
+  name: my-app-rwx-pvc
+  namespace: default
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: openebs-rwx # Must match the NFS provisioner's SC
+  resources:
+    requests:
+      storage: 1Gi
