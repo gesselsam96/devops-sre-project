@@ -8,7 +8,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: openebs-rwx # Must match the NFS provisioner's SC
+  storageClassName: nfs-internal-rwx # Must match the NFS provisioner's SC
   resources:
     requests:
       storage: 1Gi
